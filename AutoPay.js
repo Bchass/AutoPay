@@ -63,8 +63,8 @@ puppeteer.use(pluginStealth());
   await page.click('button[data-nemo="continue"]');
 
   // Set tabindex to your prefered payment type. 0 being the first option, -1 being the second option, etc.
-   await page.waitFor(10000);
-   await page.click('input[tabindex="0"]');
+  await page.waitFor(10000);
+  await page.click('input[tabindex="0"]');
 
   await page.click('button[data-nemo="choice-next-button"]');
 
