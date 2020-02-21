@@ -8,3 +8,6 @@
  - Puppeteer: https://developers.google.com/web/tools/puppeteer
  - Puppeteer-extra: https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra
  - dotenv: https://www.npmjs.com/package/dotenv
+----
+ ### TODO:
+ - Figure out a new way to go undetected
