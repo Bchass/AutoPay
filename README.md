@@ -10,4 +10,4 @@
  - dotenv: https://www.npmjs.com/package/dotenv
 ----
  ### TODO:
- - Figure out a new way to go undetected
+ ~~Figure out a new way to go undetected~~
