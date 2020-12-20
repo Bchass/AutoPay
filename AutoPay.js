@@ -68,5 +68,6 @@ puppeteer.use(pluginStealth());
   await page.click('button[data-nemo="send"]');
 
   // Script is closed after payment is sent
+  console.log('Script is closing...')
   browser.close();
 })();
