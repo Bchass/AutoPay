@@ -6,7 +6,7 @@
 // - Install puppeteer or puppeteer extra through npm (must have npm installed)
 // - One touch can also be ignored as the script will automatically bypass it
 // - Optional:
-//  - Install dotenv to use environment variables (examples without dotenv still present)
+//  - Install dotenv to use environment variables
 //  - Add .env file to the root directory of the script
 //=======================================================================================
 
@@ -50,14 +50,11 @@ puppeteer.use(pluginStealth());
   try {
     await page.click('button[data-nemo="entrySubmit');
   } catch (e) {}
-
-  //await page.goto("https://www.paypal.com/myaccount/transfer/homepage/external/summary?recipient=testemail@org.com&firstName=test1234&lastName=test1234&displayName=test%1234&thumbnailUrl=(stuff goes here)&transaction_type=PERSONAL&from=SUM-QuickSend");
   await page.goto(process.env.link);
 
   // Types in the desired amount
   await page.waitForSelector("#fn-amount");
   await page.type("#fn-amount", process.env.amount);
-  //await page.type("#fn-amount", "0.01");
 
   // Next few clicks run through the process and send the payment
   await page.click('button[data-nemo="continue"]');
