@@ -23,10 +23,10 @@ const cookie = {
 // puppeteer extra to hide from websites when headless mode is being used
 // Regular puppeteer can be used too
 const puppeteer = require("puppeteer-extra");
-const pluginStealth = require("puppeteer-extra-plugin-stealth");
+const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 // Load in dotenv
 require('dotenv').config();
-puppeteer.use(pluginStealth());
+puppeteer.use(StealthPlugin());
 (async () => {
   // Turn headless to true or false depending on your needs
   const browser = await puppeteer.launch({
