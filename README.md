@@ -31,3 +31,5 @@
 
  ### TODO:
  ~~Figure out a new way to go undetected~~
+ - Add support for FireFox
+ - Transation over to TypeScript
