@@ -1,9 +1,3 @@
-//=======================================================================================
-// This script will log you into PayPal and send a desired amount
-// to the specified person
-// Author: Brandon Chasser
-//=======================================================================================
-
 // Cookie that holds pre-filled email
 const cookie = {
   name: "login_email",
