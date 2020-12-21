@@ -8,10 +8,10 @@ const cookie = {
   httpOnly: true,
   secure: true
 };
-const puppeteer = require("puppeteer-extra");
-const StealthPlugin = require("puppeteer-extra-plugin-stealth");
-const AdblockerPlugin = require ('puppeteer-extra-plugin-adblocker')
-// Load in dotenv
+const puppeteer = require('puppeteer-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+const AdblockerPlugin = require ('puppeteer-extra-plugin-adblocker');
+// Load in dotenv and plugins
 require('dotenv').config();
 puppeteer.use(StealthPlugin());
 puppeteer.use(AdblockerPlugin());
