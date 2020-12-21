@@ -2,12 +2,6 @@
 // This script will log you into PayPal and send a desired amount
 // to the specified person
 // Author: Brandon Chasser
-// Notes:
-// - Install puppeteer or puppeteer extra through npm (must have npm installed)
-// - One touch can also be ignored as the script will automatically bypass it
-// - Optional:
-//  - Install dotenv to use environment variables
-//  - Add .env file to the root directory of the script
 //=======================================================================================
 
 // Cookie that holds pre-filled email
@@ -20,18 +14,19 @@ const cookie = {
   httpOnly: true,
   secure: true
 };
-// puppeteer extra to hide from websites when headless mode is being used
-// Regular puppeteer can be used too
 const puppeteer = require("puppeteer-extra");
 const StealthPlugin = require("puppeteer-extra-plugin-stealth");
+const AdblockerPlugin = require ('puppeteer-extra-plugin-adblocker')
 // Load in dotenv
 require('dotenv').config();
 puppeteer.use(StealthPlugin());
+puppeteer.use(AdblockerPlugin());
 (async () => {
   // Turn headless to true or false depending on your needs
   const browser = await puppeteer.launch({
     headless: false,
-    slowMo: 150
+    slowMo: 150,
+    blockTrackers: true
   });
   const page = await browser.newPage();
 
