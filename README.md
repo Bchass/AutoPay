@@ -20,7 +20,7 @@
 
 ### Usage:
 - In a terminal type: `node AutoPay.js`
-- dotenv:
+#### dotenv:
 - `password = 'your password'`
 
 - `link = 'link to the persons account'`
