@@ -5,10 +5,9 @@
 ----
 
 ### Development: 
- - Puppeteer: https://developers.google.com/web/tools/puppeteer
- - Puppeteer-extra: https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra
- - Puppeteer-Stealth: https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-stealth
- - dotenv: https://www.npmjs.com/package/dotenv
+ - [Puppeteer-extra](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra)
+ - [Puppeteer-Stealth](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-stealth)
+ - [dotenv](https://www.npmjs.com/package/dotenv)
 ----
 
 ### Requirements:
@@ -21,13 +20,13 @@
 ----
 
 ### Usage:
-- In a terminal type: *node AutoPay.js*
+- In a terminal type: `node AutoPay.js`
 - dotenv:
-> password = 'your password'
+- `password = 'your password'`
 
-> link = 'link to the persons account'
+- `link = 'link to the persons account'`
 
-> ammount = 'x dollar ammount (1.15)'
+- `ammount = 'x dollar ammount (1.15)'`
 
 ----
 
