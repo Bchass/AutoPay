@@ -1,4 +1,7 @@
-# AutoPay
+<p align="center">
+  <img width="128" height="128" src="https://github.com/Bchass/AutoPay/blob/master/Logo.png">
+</p>
+
 ### Function:
 
 - This script will log you into PayPal and send a desired amount to the specified person 🤑
