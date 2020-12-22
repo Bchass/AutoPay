@@ -12,11 +12,10 @@
 
 ### Requirements:
 1. NPM or Yarn
-2. Puppeteer
-3. Puppeteer-extra
-4. Puppeteer-Stealth
-5. Puppeteer-extra-Adblocker (found on the same page as puppeteer-extra)
-6. dotenv (add .dotenv to the root directory of the script)
+2. Puppeteer-extra
+3. Puppeteer-Stealth
+4. Puppeteer-extra-Adblocker (found on the same page as puppeteer-extra)
+5. dotenv (add .dotenv to the root directory of the script)
 ----
 
 ### Usage:
