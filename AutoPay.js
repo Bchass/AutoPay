@@ -1,4 +1,10 @@
-// Cookie that holds pre-filled email
+import puppeteer from 'puppeteer-extra'
+import StealthPlugin from 'puppeteer-extra-plugin-stealth'
+import AdblockerPlugin from 'puppeteer-extra-plugin-adblocker'
+import dotenv from 'dotenv'
+
+dotenv.config()
+
 const cookie = {
   name: "login_email",
   value: "testemail@org.com",
@@ -8,55 +14,40 @@ const cookie = {
   httpOnly: true,
   secure: true
 };
-const puppeteer = require('puppeteer-extra');
-const StealthPlugin = require('puppeteer-extra-plugin-stealth');
-const AdblockerPlugin = require ('puppeteer-extra-plugin-adblocker');
-// Load in dotenv and plugins
-require('dotenv').config();
-puppeteer.use(StealthPlugin());
-puppeteer.use(AdblockerPlugin());
-(async () => {
-  // Turn headless to true or false depending on your needs
-  const browser = await puppeteer.launch({
-    headless: false,
-    slowMo: 150,
-    blockTrackers: true
-  });
-  const page = await browser.newPage();
 
-  // Load the cookie
-  await page.setCookie(cookie);
+puppeteer
+  .use(StealthPlugin())
+  .use(AdblockerPlugin())
+  .launch({headless: false, slowMo:150, blockTrackers: true})
+  .then(async browser => {
+    const page = await browser.newPage()
+    await page.setCookie(cookie)
+    await page.goto("https://www.paypal.com/us/signin");
 
-  // Login page
-  await page.goto("https://www.paypal.com/us/signin");
-  await page.type("#password", process.env.password);
-  //await page.type("#password", "test1234");
+    await page.type("#password", process.env.password);
+    await page.click("#btnLogin");
 
-  // Click login
-  await page.click("#btnLogin");
+    try {
+      await page.click('button[data-nemo="entrySubm');
+    } catch(e){}
 
-  // try/catch statement for security
-  try {
-    await page.click('button[data-nemo="entrySubmit');
-  } catch (e) {}
-  await page.goto(process.env.link);
+    await page.goto(process.env.link);
+    await page.waitForSelector("#fn-amount");
+    
+    await page.type("#fn-amount", process.env.amount);
 
-  // Types in the desired amount
-  await page.waitForSelector("#fn-amount");
-  await page.type("#fn-amount", process.env.amount);
 
-  // Next few clicks run through the process and send the payment
-  await page.click('button[data-nemo="continue"]');
+    await page.click('button[data-nemo="continue"]');
 
-  // Set tabindex to your prefered payment type. 0 being the first option, -1 being the second option, etc.
-  await page.waitFor(10000);
-  await page.click('input[tabindex="0"]');
+    // Set tabindex to your prefered payment type. 0 being the first option, -1 being the second option, etc.
+    await page.waitForTimeout(10000);
+    await page.click('input[tabindex="0"]');
 
-  await page.click('button[data-nemo="choice-next-button"]');
+    await page.click('button[data-nemo="choice-next-button"]');
 
-  await page.click('button[data-nemo="send"]');
+    await page.click('button[data-nemo="send"]');
 
-  // Script is closed after payment is sent
-  console.log('Script is closing...')
-  browser.close();
-})();
+    console.log('Script is closing...')
+    browser.close();
+    
+  })
