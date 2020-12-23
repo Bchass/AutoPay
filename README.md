@@ -33,6 +33,6 @@
 ----
 
  ### TODO:
- ~~Figure out a new way to go undetected~~
+ - ~~Figure out a new way to go undetected~~
  - Add support for Firefox (on hold as it's still very buggy) [Status](https://puppeteer.github.io/ispuppeteerfirefoxready/)
- - Transation over to TypeScript
+ - ~Transation over to TypeScript~
