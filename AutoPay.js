@@ -2,18 +2,9 @@ import puppeteer from 'puppeteer-extra'
 import StealthPlugin from 'puppeteer-extra-plugin-stealth'
 import AdblockerPlugin from 'puppeteer-extra-plugin-adblocker'
 import dotenv from 'dotenv'
+import {cookie} from './cookie.js'
 
 dotenv.config()
-
-const cookie = {
-  name: "login_email",
-  value: "testemail@org.com",
-  domain: ".paypal.com",
-  url: "https://www.paypal.com",
-  path: "/",
-  httpOnly: true,
-  secure: true
-};
 
 puppeteer
   .use(StealthPlugin())
