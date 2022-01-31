@@ -4,7 +4,7 @@
 
 ### Function:
 
-- This script will log you into PayPal and send a desired amount to the specified person 🤑
+- This script will log you into PayPal and send a desired amount to the specified person
 ----
 
 ### Development: 
